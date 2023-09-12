@@ -1,0 +1,111 @@
+{% extends 'account/main.html' %}
+
+
+{% block content %}
+
+
+
+<main>
+
+    <!-- Section -->
+    <section class="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
+        <div class="container">
+            <p class="text-center"><a href="/accounts/login/" class="text-gray-700"><i
+                        class="fas fa-angle-left mr-2"></i> Back to Sign In</a></p>
+            <div class="row justify-content-center form-bg-image"
+                data-background-lg="https://appsrv1-147a1.kxcdn.com/volt-dashboard/img/illustrations/signin.svg">
+                <div class="col-12 d-flex align-items-center justify-content-center">
+                    <div
+                        class="mb-4 mb-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+                        <div class="text-center text-md-center mb-4 mt-md-0">
+                            <h1 class="mb-0 h3">Create an account</h1>
+                        </div>
+                        <form id="signup_form" method="post" action="{% url 'account_signup' %}">
+                            {% csrf_token %}
+                            <!-- Form -->
+                            <div class="form-group mb-4">
+                                <label for="email">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon3"><span
+                                            class="fas fa-envelope"></span></span>
+                                    <input type="text" class="form-control" name="username" placeholder="Username"
+                                        autocomplete="username" minlength="1" maxlength="150" id="id_username" autofocus
+                                        required>
+                                </div>
+                            </div>
+                            <!-- End of Form -->
+                            <!-- Form -->
+                            <div class="form-group mb-4">
+                                <label for="email">Email (optional)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon3"><span
+                                            class="fas fa-envelope"></span></span>
+                                    <input type="email" class="form-control" name="email" placeholder="Email address"
+                                        autocomplete="email" maxlength="320" id="id_email">
+                                </div>
+                            </div>
+                            <!-- End of Form -->
+                            <div class="form-group">
+                                <!-- Form -->
+                                <div class="form-group mb-4">
+                                    <label for="password">Your Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon4"><span
+                                                class="fas fa-unlock-alt"></span></span>
+                                        <input type="password" placeholder="Password" name="password1"
+                                            class="form-control" autocomplete="new-password" required id="id_password1">
+                                    </div>
+                                </div>
+                                <!-- End of Form -->
+                                <!-- Form -->
+                                <div class="form-group mb-4">
+                                    <label for="confirm_password">Confirm Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon5"><span
+                                                class="fas fa-unlock-alt"></span></span>
+                                        <input type="password" name="password2" placeholder="Confirm Password"
+                                            class="form-control" autocomplete="new-password" required id="id_password2">
+                                    </div>
+                                </div>
+                                <!-- End of Form -->
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the <a href="#">terms and conditions</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-block btn-primary">Sign in</button>
+                        </form>
+
+                        <div class="d-flex justify-content-center align-items-center mt-4">
+                            <span class="font-weight-normal">
+                                Already have an account?
+                                <a href="/accounts/login/" class="font-weight-bold">Login here</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+{% if form.errors %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        html: `
+                    {% for errors in form.errors.values %}
+                        {% for error in errors %}
+                            {{ error }} <br>
+                        {% endfor %}
+                    {% endfor %}
+                `,
+    })
+</script>
+{% endif %}
+
+{% endblock %}

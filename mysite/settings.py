@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'allauth.socialaccount.providers.google',
+
+    'cloudinary_storage',
+    'cloudinary',
     
 ]
 
@@ -165,3 +168,14 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = "canipet.ni@gmail.com"
 EMAIL_HOST_PASSWORD = "csoaqagdvkqkvgsv"
 EMAIL_USE_SSL = True
+
+
+# Image
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = { 
+     'CLOUD_NAME': 'den3ccjvd', 
+     'API_KEY': '294527718744669', 
+     'API_SECRET': 'ZZE29WW763hftb2Oiq7QmeFvCQg' 
+ }
+

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}User Information{% endblock %}
+
+{% block content %}
+<div class="page-content" style="background-image: url('images/wizard-v2-bg.jpg')">
+  <div class="wizard-v2-content">
+    <div class="wizard-image">
+    </div>
+    <div class="wizard-form">
+      <div class="wizard-header">
+        <h3>Form Wizard</h3>
+        <p>Nostrud exercitation commodo consequat.</p>
+      </div>
+      <form class="form-register" method="post">
+        {% csrf_token %}
+        <div id="form-total">
+            <h2>1</h2>
+            <section>
+                <div class="inner">
+                    <div class="form-row">
+                        <div class="form-holder form-holder-2">
+                            <select name="user" id="location" class="form-control">
+                                <option value="" disabled selected>Choose a user</option>
+                                {% for user in users %}
+                                <option value="{{ user.id }}">{{ user.username }}</option>
+                                {% endfor %}
+                            </select>
+                            <span class="select-btn">
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-holder">
+                            <input name="nombre" type="text" placeholder="First Name" class="form-control" id="first_name">
+                        </div>
+                        <div class="form-holder">
+                            <input name="apellido" type="text" placeholder="Last Name" class="form-control" id="last_name">
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <h2>2</h2>
+            <section>
+                <div class="inner">
+                    <div class="form-row">
+                        <div class="form-holder form-holder-2">
+                            <input name="telefono" type="number" placeholder="Phone" class="form-control" id="phone">
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <h2>3</h2>
+            <section>
+                <div class="inner">
+                    <div class="form-row table-responsive">
+                        mapa
+                    </div>
+                </div>
+                <button type="submit">Enviar</button>
+            </section>
+        </div>
+    </form>
+    
+    </div>
+  </div>
+</div>
+{% endblock %}

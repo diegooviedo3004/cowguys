@@ -57,15 +57,60 @@
             <section>
                 <div class="inner">
                     <div class="form-row table-responsive">
-                        mapa
+                        
                     </div>
                 </div>
                 <button type="submit">Enviar</button>
             </section>
         </div>
     </form>
-    
+
+    <input type="text" id="place_input" placeholder="Ingresa una direccion...">
+    <div id="map"></div>
+
+    <style>
+        #map{
+            height: 100%;
+        }
+        #place_input{
+            width: 100%;
+            height: 30px;
+            border-radius: 0;
+            border: none;
+            font-size: 15px;
+        }
+    </style>
     </div>
   </div>
 </div>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvxLuk3t7Ks_NDKiQH7I3xu6WncJa7kXA&libraries=places&callback=initMap"></script>
+    <script>
+        const nicCoords = { lat: 13.0000000, lng: -85.0000000 };
+        const mapDiv = document.getElementById("map");
+        const input = document.getElementById("place_input");
+        let map;
+        let marker;
+        let autocomplete;
+
+        function initMap(){
+            map = new google.maps.Map(mapDiv, {
+                center: nicCoords,
+                zoom: 4,
+            });
+            marker = new google.maps.Marker({
+                position: nicCoords,
+                map: map,
+            });
+            initAutocomplete();
+        }
+
+        function initAutocomplete(){
+            autocomplete = new google.maps.places.Autocomplete(input)
+            autocomplete.addListener('place_changed', function(){
+                const place = autocomplete.getPlace();
+                map.setCenter(place.geometry.location);
+                marker.setPosition(place.geometry.location);
+            });
+        }
+    </script>
 {% endblock %}

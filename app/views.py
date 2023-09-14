@@ -33,3 +33,7 @@ def crear_user_information(request):
         form = UserInformationForm()
     
     return render(request, 'info.html', {'form': form})
+
+
+def map(request):
+    return render(request, 'map.html')

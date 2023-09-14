@@ -143,6 +143,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR + "/static/",
+]
+
+
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -161,9 +166,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "landing"
 
-STATICFILES_DIRS = [
-    BASE_DIR + "/static/",
-]
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
@@ -182,3 +184,8 @@ CLOUDINARY_STORAGE = {
      'API_SECRET': 'ZZE29WW763hftb2Oiq7QmeFvCQg' 
  }
 
+
+LOGIN_URL = '/accounts/google/login'
+ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/google/login"
+
+#http://localhost:8000/accounts/logout/

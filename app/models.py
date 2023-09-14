@@ -64,7 +64,7 @@ class UserInformation(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.nombre
+        return self.nombre 
 
 class Ganaderia(models.Model):
     user_information = models.ForeignKey(UserInformation, on_delete=models.CASCADE)

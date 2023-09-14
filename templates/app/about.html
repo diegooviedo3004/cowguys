@@ -1,0 +1,237 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{%block title %}About{%endblock%}
+
+
+{% block main %}
+
+<div class="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4 mt-10">
+    <p
+        class="font-normal text-sm leading-3 text-indigo-700 dark:text-indigo-500 hover:text-indigo-800 cursor-pointer pb-2">
+        Acerca de nosotros</p>
+    <div class="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
+        <div class="w-full lg:w-6/12">
+            <h2 class="w-full font-bold lg:text-4xl text-3xl lg:leading-10 dark:text-white leading-9">En vendetuvaca,
+                estamos en una misión audaz para
+                revolucionar la industria ganadera.</h2>
+            <p class="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6"> Nuestra pasión es conectar
+                a los ganaderos y criadores de ganado bovino
+                en una plataforma innovadora y confiable, transformando la manera en que compran y venden ganado en
+                línea</p>
+        </div>
+        <div class="w-full lg:w-6/12">
+            <img class="lg:block hidden w-full" src="https://i.ibb.co/RjNH7QB/Rectangle-122-1.png"
+                alt="people discussing on board" />
+            <img class="lg:hidden sm:block hidden w-full" src="https://i.ibb.co/16fPqrg/Rectangle-122-2.png"
+                alt="people discussing on board" />
+            <img class="sm:hidden block w-full" src="https://i.ibb.co/Jxhpxh6/Rectangle-122.png"
+                alt="people discussing on board" />
+        </div>
+    </div>
+
+    <div class="relative mt-24">
+        <div class="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+            <div class="z-20 w-12 h-12 bg-gray-800 rounded-full flex justify-center items-center">
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg1.svg" alt="flag" />
+            </div>
+
+            <img class="z-20" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg2.svg" alt="note" />
+
+            <img class="z-20 sm:block hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg3.svg"
+                alt="users" />
+        </div>
+        <hr class="z-10 absolute top-2/4 w-full bg-gray-200" />
+    </div>
+    <div class="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+        <div>
+            <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-white mt-6">
+                Fundada</p>
+            <p class="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6">Vendetuvaca fue fundada en
+                2022 con la visión de
+                transformar la industria ganadera y brindar a ganaderos y criadores una plataforma revolucionaria para
+                la compra y venta de ganado en línea. Desde entonces, hemos trabajado incansablemente para construir una
+                comunidad ganadera más fuerte y conectada en Nicaragua y más allá. Nuestra dedicación a la
+                confiabilidad, calidad y satisfacción del cliente ha sido la fuerza motriz detrás de nuestro éxito
+                continuo desde el día de nuestra fundación.</p>
+        </div>
+        <div>
+            <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-white mt-6">
+                Alcance Mensual de 245 de Mejoras</p>
+            <p class="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6">Vendetuvaca ha
+                experimentado
+                un crecimiento fenomenal desde su fundación. Actualmente, estamos orgullosos de alcanzar y servir a una
+                comunidad de más de 245 de ganaderos, criadores y entusiastas de la industria ganadera en todo el mundo
+                en nuestra plataforma todos los meses.
+                Nuestro compromiso con la confiabilidad, calidad y satisfacción del cliente sigue siendo
+                inquebrantable a medida que continuamos expandiendo nuestro alcance y mejorando nuestras ofertas para
+                brindar un servicio excepcional a nuestra creciente base de usuarios. Nos enorgullece ser parte de la
+                vida diaria de millones de personas en la comunidad ganadera y esperamos seguir siendo su socio
+                confiable en el mundo del ganado.</p>
+        </div>
+        <div class="sm:block hidden">
+            <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-white mt-6">
+                Atendiendo a 1,000 Usuarios Mensualmente</p>
+            <p class="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6">En vendetuvaca,
+                estamos comprometidos en brindar un servicio de calidad a nuestros usuarios. En la actualidad, atendemos
+                a
+                una base de 1,000 usuarios mensualmente y trabajamos incansablemente para garantizar que cada uno de
+                ellos tenga una experiencia sobresaliente en nuestra plataforma.
+                A pesar de nuestro tamaño actual, seguimos enfocados en la confiabilidad y la calidad en cada
+                interacción que tenemos con nuestros usuarios. Nuestra misión es proporcionar un servicio de primera
+                clase a ganaderos y criadores, independientemente de su cantidad. Continuaremos creciendo y mejorando
+                para servir aún mejor a nuestra creciente comunidad. Gracias por confiar en vendetuvaca como tu
+                plataforma ganadera de elección.</p>
+        </div>
+    </div>
+    <div class="sm:hidden block relative mt-8">
+        <div class="grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg3.svg" alt="user" />
+        </div>
+        <hr class="z-10 absolute top-2/4 w-full bg-gray-200" />
+    </div>
+    <div class="sm:hidden grid sm:grid-cols-3 grid-cols-2 sm:gap-8 gap-4">
+        <div>
+            <p class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-white mt-6">400k
+                User</p>
+            <p class="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6">It is a long established
+                fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        </div>
+    </div>
+
+    <div class="flex lg:flex-row flex-col md:gap-14 gap-16 justify-between lg:mt-20 mt-16">
+        <div class="w-full lg:w-6/12">
+            <h2 class="font-bold lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 dark:text-white">Nuestra
+                Mision</h2>
+            <p
+                class="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 mt-6 w-full lg:w-10/12 xl:w-9/12">
+                En vendetuvaca, nuestra misión es revolucionar la industria ganadera al proporcionar una plataforma
+                innovadora y confiable para la compra y venta de ganado en línea. Nuestra aplicación está diseñada para
+                ganaderos y criadores de ganado bovino y porcino, brindando un conjunto de características excepcionales
+                que simplificarán y optimizarán sus operaciones.</p>
+            <p
+                class="font-normal text-base leading-6 text-gray-600 dark:text-gray-200 w-full lg:w-10/12 xl:w-9/12 mt-10">
+                En el corazón de vendetuvaca está nuestro compromiso inquebrantable con la confiabilidad y la calidad.
+                Cada animal que encuentras en nuestra plataforma ha pasado por una rigurosa verificación realizada por
+                nuestros administradores. Esto significa que puedes confiar en que estás tratando con animales legítimos
+                y saludables, tanto si eres un comprador en busca de calidad como un vendedor que busca asegurar la
+                integridad de sus transacciones.</p>
+        </div>
+        <div class="w-full lg:w-6/12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:gap-12 gap-10">
+                <!-- Team Card -->
+                <div class="flex p-4 shadow-md">
+                    <div class="mr-6">
+                        <img class="mr-6" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg4.svg"
+                            alt="team card" />
+                    </div>
+                    <div class="">
+                        <p
+                            class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-white">
+                            Team</p>
+                        <p class="mt-2 font-normal text-base leading-6 text-gray-600 dark:text-gray-200">It is a long
+                            established fact that a reader will be distracted by the readable content of a page when
+                            looking at its layout.</p>
+                    </div>
+                </div>
+
+                <!-- Board Card -->
+                <div class="flex p-4 shadow-md">
+                    <div class="mr-6">
+                        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg5.svg" alt="board card" />
+                    </div>
+                    <div class="">
+                        <p
+                            class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-white">
+                            Board</p>
+                        <p class="mt-2 font-normal text-base leading-6 text-gray-600 dark:text-gray-200">It is a long
+                            established fact that a reader will be distracted by the readable content of a page when
+                            looking at its layout.</p>
+                    </div>
+                </div>
+
+                <!-- Press Card -->
+                <div class="flex p-4 shadow-md">
+                    <div class="mr-6">
+                        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/about-us-3-svg6.svg" alt="press card" />
+                    </div>
+                    <div class="">
+                        <p
+                            class="font-semibold lg:text-2xl text-xl lg:leading-6 leading-5 text-gray-800 dark:text-white">
+                            Press</p>
+                        <p class="mt-2 font-normal text-base leading-6 text-gray-600 dark:text-gray-200">It is a long
+                            established fact that a reader will be distracted by the readable content of a page when
+                            looking at its layout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h1 class="text-5xl font-semibold leading-10 text-gray-800 dark:text-white text-center mt-16">Meet our team</h1>
+
+<div class="container mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 justify-center mt-8">
+        <!-- Fila 1 -->
+        <div class="lg:w-96 w-80 mx-auto">
+            <img src="{% static 'img/team/diego.jpg' %}" class="h-72 w-full object-cover object-center rounded-t-md"
+                alt="woman smiling" />
+            <div class="bg-white dark:bg-gray-800 shadow-md rounded-b-md py-4 text-center">
+                <p class="text-base font-medium leading-6 text-gray-600 dark:text-white">Diego Oviedo.</p>
+                <p class="text-base leading-6 mt-2 text-gray-800 dark:text-white">Comunicador/Desarrollador</p>
+            </div>
+        </div>
+
+        <div class="bg-indigo-700 rounded-md lg:w-96 w-80 mx-auto flex flex-col items-center justify-center md:py-0 py-12">
+            <h3 class="text-2xl font-semibold leading-6 text-center text-white">Acerca del Equipo</h3>
+            <p class="lg:w-80 lg:px-0 px-4 text-base leading-6 text-center text-white mt-6">
+                Xd.
+            </p>
+        </div>
+
+        <div class="lg:w-96 w-80 mx-auto">
+            <img src="{% static 'img/team/victor.jpg' %}" class="h-72 w-full object-cover object-center rounded-t-md"
+                alt="woman smiling" />
+            <div class="bg-white dark:bg-gray-800 shadow-md rounded-b-md py-4 text-center">
+                <p class="text-base font-medium leading-6 text-gray-600 dark:text-white">Victor Zeledon</p>
+                <p class="text-base leading-6 mt-2 text-gray-800 dark:text-white">fantasmon</p>
+            </div>
+        </div>
+
+        <!-- Fila 2 con "About Team" -->
+
+        <div class="lg:w-96 w-80 mx-auto">
+            <img src="{% static 'img/team/wanda.jpg' %}" class="h-72 w-full object-cover object-center rounded-t-md"
+                alt="woman in black dress" />
+            <div class="bg-white dark:bg-gray-800 shadow-md rounded-b-md py-4 text-center">
+                <p class="text-base font-medium leading-6 text-gray-600 dark:text-white">Wanda Rodriguez</p>
+                <p class="text-base leading-6 mt-2 text-gray-800 dark:text-white">Marketing</p>
+            </div>
+        </div>
+
+        <div class="lg:w-96 w-80 mx-auto">
+            <img src="{% static 'img/team/kevin.jpg' %}" class="h-72 w-full object-cover object-center rounded-t-md"
+                alt="woman smiling" />
+            <div class="bg-white dark:bg-gray-800 shadow-md rounded-b-md py-4 text-center">
+                <p class="text-base font-medium leading-6 text-gray-600 dark:text-white">Kevin Guadamuz</p>
+                <p class="text-base leading-6 mt-2 text-gray-800 dark:text-white">Desarrollador</p>
+            </div>
+        </div>
+
+        <div class="lg:w-96 w-80 mx-auto">
+            <img src="{% static 'img/team/omar.jpeg' %}" class="h-72 w-full object-cover object-center rounded-t-md"
+                alt="woman smiling" />
+            <div class="bg-white dark:bg-gray-800 shadow-md rounded-b-md py-4 text-center">
+                <p class="text-base font-medium leading-6 text-gray-600 dark:text-white">Omar Rodriguez</p>
+                <p class="text-base leading-6 mt-2 text-gray-800 dark:text-white">Diseñador/Desarrollador</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

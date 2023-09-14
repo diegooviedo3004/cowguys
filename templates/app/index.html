@@ -1,0 +1,469 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{%block title %}Inicio{%endblock%}
+
+
+{% block main %}
+
+<div class="grid justify-items-center mt-40">
+        <div class="xl:w-1/2 w-11/12">
+            <h1 role="heading" tabindex="0"
+                class="text-6xl font-bold 2xl:leading-10 leading-0 text-center text-gray-800 dark:text-white">
+                Encuentra en Vendetuvaca
+            </h1>
+            <h2 role="contentinfo" tabindex="0"
+                class="text-base leading-normal text-center text-gray-600 dark:text-gray-200 mt-5">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text Lorem Ipsum is simply dummy text of the printing
+            </h2>
+        </div>
+    </div>
+
+<div class="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
+    <div class="w-full relative flex items-center justify-center">
+        <button aria-label="slide backward"
+            class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer"
+            id="prev">
+            <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+            <div id="slider"
+                class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 1
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/fDngH9G/carosel-1.png" alt="black chair and white table"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/DWrGxX6/carosel-2.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/tCfVky2/carosel-3.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-shrink-0 relative w-full sm:w-auto">
+                    <img src="https://i.ibb.co/rFsGfr5/carosel-4.png" alt="sitting area"
+                        class="object-cover object-center w-full" />
+                    <div class="bg-gray-800 bg-opacity-30 absolute w-full h-full p-6">
+                        <h2 class="lg:text-xl leading-4 text-base lg:leading-5 text-white dark:text-gray-900">Catalog 2
+                        </h2>
+                        <div class="flex h-full items-end pb-6">
+                            <h3
+                                class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-white dark:text-gray-900">
+                                Minimal Interior</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button aria-label="slide forward"
+            class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+            id="next">
+            <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="bg-white">
+    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
+
+        <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+
+            <!-- More products... -->
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+
+            <div class="group relative">
+                <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+                        alt="Front of men&#039;s Basic Tee in black."
+                        class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+                </div>
+                <div class="mt-4 flex justify-between">
+                    <div>
+                        <h3 class="text-sm text-gray-700">
+                            <a href="#">
+                                <span aria-hidden="true" class="absolute inset-0"></span>
+                                Basic Tee
+                            </a>
+                        </h3>
+                        <p class="mt-1 text-sm text-gray-500">Black</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-900">$35</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="flex items-center justify-center py-10 lg:px-0 sm:px-6 px-4">
+        <div class="lg:w-3/5 w-full  flex items-center justify-between border-t border-gray-200 dark:border-gray-700">
+            <div class="flex items-center pt-3 text-gray-600 dark:text-gray-200  hover:text-indigo-700 cursor-pointer">
+                <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.1665 4H12.8332" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M1.1665 4L4.49984 7.33333" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M1.1665 4.00002L4.49984 0.666687" stroke="currentColor" stroke-width="1.25"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <p class="text-sm ml-3 font-medium leading-none ">Previous</p>
+            </div>
+            <div class="sm:flex hidden">
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-gray-200  hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                    1</p>
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-gray-200  hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                    2</p>
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-gray-200  hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                    3</p>
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-indigo-700 dark:text-indigo-400 border-t border-indigo-400 pt-3 mr-4 px-2">
+                    4</p>
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-gray-200  hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                    5</p>
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-gray-200  hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                    6</p>
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-gray-200  hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                    7</p>
+                <p
+                    class="text-sm font-medium leading-none cursor-pointer text-gray-600 dark:text-gray-200  hover:text-indigo-700 dark:hover:text-indigo-400 border-t border-transparent hover:border-indigo-400 pt-3 mr-4 px-2">
+                    8</p>
+            </div>
+            <div class="flex items-center pt-3 text-gray-600 dark:text-gray-200  hover:text-indigo-700 cursor-pointer">
+                <p class="text-sm font-medium leading-none mr-3">Next</p>
+                <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.1665 4H12.8332" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M9.5 7.33333L12.8333 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M9.5 0.666687L12.8333 4.00002" stroke="currentColor" stroke-width="1.25"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    let defaultTransform = 0;
+    function goNext() {
+        defaultTransform = defaultTransform - 398;
+        var slider = document.getElementById("slider");
+        if (Math.abs(defaultTransform) >= slider.scrollWidth / 1.7) defaultTransform = 0;
+        slider.style.transform = "translateX(" + defaultTransform + "px)";
+    }
+    next.addEventListener("click", goNext);
+    function goPrev() {
+        var slider = document.getElementById("slider");
+        if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+        else defaultTransform = defaultTransform + 398;
+        slider.style.transform = "translateX(" + defaultTransform + "px)";
+    }
+    prev.addEventListener("click", goPrev);
+
+</script>
+
+
+{% endblock %}

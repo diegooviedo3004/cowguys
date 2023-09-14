@@ -1,0 +1,256 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{%block title %}Profile{%endblock%}
+
+
+{% block main %}
+
+
+
+
+
+<!-- Card code block start -->
+<div aria-label="cards" class="bg-white dark:bg-gray-800 shadow rounded">
+    <div class="relative">
+        <img tabindex="0" class="focus:outline-none h-56 shadow rounded-t w-full object-cover object-center"
+            src="https://tuk-cdn.s3.amazonaws.com/assets/components/grid_cards/gc_29.png" alt="mountains cover" />
+        <div class="inset-0 m-auto w-24 h-24 absolute bottom-0 -mb-12 xl:ml-10 rounded border-2 shadow border-white">
+            <img tabindex="0" class="focus:outline-none w-full h-full overflow-hidden object-cover rounded"
+                src="{{perfil.get_photo_url}}" alt="person" />
+        </div>
+    </div>
+    <div class="px-5 xl:px-10 pb-10">
+        <div class="flex justify-center xl:justify-end w-full pt-16 xl:pt-5">
+            <div tabindex="0" aria-label="4 stars" role="img" class="focus:outline-none flex items-center">
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/full_width_user_profile_card-svg1.svg"
+                    alt="yellow star" />
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/full_width_user_profile_card-svg1.svg"
+                    alt="yellow star" />
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/full_width_user_profile_card-svg1.svg"
+                    alt="yellow star" />
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/full_width_user_profile_card-svg1.svg"
+                    alt="yellow star" />
+                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/full_width_user_profile_card-svg2.svg"
+                    alt="gray star" />
+            </div>
+        </div>
+        <div class="pt-3 xl:pt-5 flex flex-col xl:flex-row items-start xl:items-center justify-between">
+            <div class="xl:pr-16 w-full xl:w-2/3">
+                <div
+                    class="text-center xl:text-left mb-3 xl:mb-0 flex flex-col xl:flex-row items-center justify-between xl:justify-start">
+                    <a tabindex="0" class=" focus:outline-none  text-gray-800 dark:text-gray-100 focus:outline-none">
+                        <h2 class="mb-3 xl:mb-0 xl:mr-4 text-2xl  font-medium tracking-normal">{{perfil.first_name}} <span
+                            class="inline-flex items-center justify-center w-6 h-6 mr-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-gray-700 dark:text-blue-400">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                viewBox="0 0 20 20">
+                                <path fill="currentColor"
+                                    d="m18.774 8.245-.892-.893a1.5 1.5 0 0 1-.437-1.052V5.036a2.484 2.484 0 0 0-2.48-2.48H13.7a1.5 1.5 0 0 1-1.052-.438l-.893-.892a2.484 2.484 0 0 0-3.51 0l-.893.892a1.5 1.5 0 0 1-1.052.437H5.036a2.484 2.484 0 0 0-2.48 2.481V6.3a1.5 1.5 0 0 1-.438 1.052l-.892.893a2.484 2.484 0 0 0 0 3.51l.892.893a1.5 1.5 0 0 1 .437 1.052v1.264a2.484 2.484 0 0 0 2.481 2.481H6.3a1.5 1.5 0 0 1 1.052.437l.893.892a2.484 2.484 0 0 0 3.51 0l.893-.892a1.5 1.5 0 0 1 1.052-.437h1.264a2.484 2.484 0 0 0 2.481-2.48V13.7a1.5 1.5 0 0 1 .437-1.052l.892-.893a2.484 2.484 0 0 0 0-3.51Z" />
+                                <path fill="#fff"
+                                    d="M8 13a1 1 0 0 1-.707-.293l-2-2a1 1 0 1 1 1.414-1.414l1.42 1.42 5.318-3.545a1 1 0 0 1 1.11 1.664l-6 4A1 1 0 0 1 8 13Z" />
+                            </svg>
+                            <span class="sr-only">Icon description</span>
+                        </span>
+                        </h2>
+                    </a>
+                    <p tabindex="0"
+                        class="focus:outline-none text-sm bg-gray-400 dark:bg-gray-400 text-white px-5 py-1 font-normal rounded-full">
+                        Gratuito</p>
+
+                    <p tabindex="0"
+                        class="focus:outline-none text-sm bg-green-400 dark:bg-green-400 text-white px-5 py-1 font-normal rounded-full">
+                        Vip</p>
+
+                    <p tabindex="0"
+                        class="focus:outline-none text-sm bg-yellow-500 dark:bg-yellow-500 text-white px-5 py-1 font-normal rounded-full">
+                        Gold</p>
+
+                   
+
+                </div>
+                <p tabindex="0"
+                    class="focus:outline-none text-center xl:text-left mt-2 text-sm tracking-normal text-gray-600 dark:text-gray-400 leading-5">
+                    @{{perfil.username}} , I am a direct response copywriter from the US. When you work with me, we have
+                    the same goal.
+                    Maximizing your ROI</p>
+            </div>
+            <div class="xl:px-10 xl:border-l xl:border-r w-full py-5 flex items-start justify-center xl:w-1/3">
+                <div class="mr-6 xl:mr-10">
+                    <h2 tabindex="0"
+                        class="focus:outline-none text-gray-600 dark:text-gray-400 font-bold text-xl xl:text-2xl leading-6 mb-2 text-center">
+                        0</h2>
+                    <a tabindex="0" class=" focus:outline-none text-gray-800 dark:text-gray-100 ">
+                        <p class=" text-sm xl:text-xl leading-5">Vendidos</p>
+                    </a>
+                </div>
+                <div class="mr-6 xl:mr-10">
+                    <h2 tabindex="0"
+                        class="focus:outline-none text-gray-600 dark:text-gray-400 font-bold text-xl xl:text-2xl leading-6 mb-2 text-center">
+                        0</h2>
+                    <a tabindex="0" class=" focus:outline-none text-gray-800 dark:text-gray-100 ">
+                        <p class=" text-sm xl:text-xl leading-5">Publicaciones</p>
+                    </a>
+                </div>
+                <div>
+                    <h2 tabindex="0"
+                        class="focus:outline-none text-gray-600 dark:text-gray-400 font-bold text-xl xl:text-2xl leading-6 mb-2 text-center">
+                        0</h2>
+                    <a tabindex="0" class=" focus:outline-none text-gray-800 dark:text-gray-100 ">
+                        <p class=" text-sm xl:text-xl leading-5">Ganaderias</p>
+                    </a>
+                </div>
+            </div>
+            <div class="w-full xl:w-2/3 flex-col md:flex-row justify-center xl:justify-end flex md:pl-6">
+                <!-- <div class="flex items-center justify-center xl:justify-start mt-1 md:mt-0 mb-5 md:mb-0">
+                    <div tabindex="0"
+                        class="focus:outline-none rounded-full bg-gray-100 text-gray-700 dark:text-gray-400 text-sm px-6 py-2 flex justify-center items-center">
+                        Remote</div>
+                    <div tabindex="0"
+                        class="focus:outline-none ml-5 rounded-full bg-green-100 text-green-700 text-sm px-6 py-2 flex justify-center items-center">
+                        Available</div>
+                </div> -->
+
+                <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-5">
+                    <button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 
+                        text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-auto md:w-auto">
+                        Crear Ganado
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </button>
+                
+                    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 
+                        focus:ring-green-700 focus:bg-green-600 ml-0 md:ml-5 mt-2 md:mt-0 bg-green-700 
+                        dark:bg-green-600 transition duration-150 ease-in-out hover:bg-green-600 rounded 
+                        text-white px-3 md:px-6 py-2 text-sm w-auto md:w-auto">Message</button>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Card code block end -->
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center mt-10">
+
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="{% static 'img/vaca2.jpg' %}" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
+                    acquisitions 2021</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
+                acquisitions of 2021 so far, in reverse chronological order.</p>
+            <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="{% static 'img/vaca2.jpg' %}" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
+                    acquisitions 2021</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
+                acquisitions of 2021 so far, in reverse chronological order.</p>
+            <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="{% static 'img/vaca2.jpg' %}" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
+                    acquisitions 2021</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
+                acquisitions of 2021 so far, in reverse chronological order.</p>
+            <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="{% static 'img/vaca2.jpg' %}" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
+                    acquisitions 2021</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
+                acquisitions of 2021 so far, in reverse chronological order.</p>
+            <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href="#">
+            <img class="rounded-t-lg" src="{% static 'img/vaca2.jpg' %}" alt="" />
+        </a>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology
+                    acquisitions 2021</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology
+                acquisitions of 2021 so far, in reverse chronological order.</p>
+            <a href="#"
+                class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

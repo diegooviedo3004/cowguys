@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'allauth.socialaccount.providers.google',
+
+    'cloudinary_storage',
+    'cloudinary',
     
 ]
 
@@ -74,7 +77,10 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates/admin/templates'),
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,6 +143,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR + "/static/",
+]
+
+
 
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -155,9 +166,6 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "landing"
 
-STATICFILES_DIRS = [
-    BASE_DIR + "/static/",
-]
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
@@ -165,3 +173,19 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = "canipet.ni@gmail.com"
 EMAIL_HOST_PASSWORD = "csoaqagdvkqkvgsv"
 EMAIL_USE_SSL = True
+
+
+# Image
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_STORAGE = { 
+     'CLOUD_NAME': 'den3ccjvd', 
+     'API_KEY': '294527718744669', 
+     'API_SECRET': 'ZZE29WW763hftb2Oiq7QmeFvCQg' 
+ }
+
+
+LOGIN_URL = '/accounts/google/login'
+ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/google/login"
+
+#http://localhost:8000/accounts/logout/

@@ -9,4 +9,9 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('crear_info/', views.crearInfo, name='crearinfo'),
     path('planes/', views.plan, name='planespago'),
+
+    # Stripe
+    path('checkout-session/<pk>/', views.checkout_view, name="create-checkout-session"),
+    
+
 ]

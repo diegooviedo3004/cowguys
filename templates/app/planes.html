@@ -100,11 +100,10 @@
                         </li>
                     </ul>
                     <div class="mt-6 rounded-md shadow">
-                        <a href="#"
-                            class="flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-white transition 
-                            duration-150 ease-in-out bg-green-600 border border-transparent rounded-md hover:bg-green-500 focus:outline-none focus:shadow-outline">
+                        <button class="stripe_btn flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-white transition 
+                        duration-150 ease-in-out bg-green-600 border border-transparent rounded-md hover:bg-green-500 focus:outline-none focus:shadow-outline" data-id="1">        
                             Comienza con el plan Gratuito
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -193,13 +192,10 @@
                         </li>
                     </ul>
                     <div class="mt-6 rounded-md shadow">
-                        <a href="#"
-                            class="flex items-center justify-center px-5 py-3 text-base 
-                            font-medium leading-6 text-white transition duration-150 ease-in-out 
-                            bg-green-600 border border-transparent rounded-md hover:bg-green-500 
-                            focus:outline-none focus:shadow-outline">
-                            Comienza con el plan Vip
-                        </a>
+                        <button  class="stripe_btn flex items-center justify-center px-5 py-3 text-base 
+                        font-medium leading-6 text-white transition duration-150 ease-in-out 
+                        bg-green-600 border border-transparent rounded-md hover:bg-green-500 
+                        focus:outline-none focus:shadow-outline" data-id="2"> Comienza con el plan Vip </button>            
                     </div>
                 </div>
             </div>
@@ -288,13 +284,12 @@
                         </li>
                     </ul>
                     <div class="mt-6 rounded-md shadow">
-                        <a href="#"
-                            class="flex items-center justify-center px-5 py-3 text-base 
-                            font-medium leading-6 text-white transition duration-150 
-                            ease-in-out bg-green-600 border border-transparent rounded-md 
-                            hover:bg-green-500 focus:outline-none focus:shadow-outline">
+                        <button class=" stripe_btn flex items-center justify-center px-5 py-3 text-base 
+                        font-medium leading-6 text-white transition duration-150 
+                        ease-in-out bg-green-600 border border-transparent rounded-md 
+                        hover:bg-green-500 focus:outline-none focus:shadow-outline" data-id="3">
                             Comienza con el Plan Gold
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -302,6 +297,31 @@
     </div>
     
     </div>
+
+
+    {% csrf_token %}
+    <script src="https://js.stripe.com/v3/"></script>
+    <script defer>
+      var stripe = Stripe("{{STRIPE_PUBLIC_KEY}}");
+      const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+      const checkoutBtns = document.querySelectorAll(".stripe_btn");
+        
+
+      checkoutBtns.forEach((btn) =>  {
+        btn.addEventListener("click", async () => {
+            console.log(btn.dataset.id)
+            const res = await fetch(`/checkout-session/${btn.dataset.id}/`, {
+            method: "POST",
+            headers: {
+              "X-CSRFToken": csrftoken,
+            },
+          });
+          const data = await res.json();
+          const stripe_data = await stripe.redirectToCheckout({ sessionId: data.id });
+
+        });
+      });
+    </script>
 
 
 {% endblock %}

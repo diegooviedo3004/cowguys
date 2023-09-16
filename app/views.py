@@ -7,6 +7,10 @@ from .models import *
 
 from .form import UserInformationForm
 
+# Stripe
+from django.conf import settings 
+import stripe
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 # Decorador
@@ -88,5 +92,50 @@ def crearInfo(request):
     return render(request, "app/crear_informacion.html", context)
 
 
+
+
+def checkout_view(request, pk):
+    if request.method == "POST":
+        try:
+            print(pk)
+            product = Plan.objects.get(id=pk)
+            YOUR_DOMAIN = settings.YOUR_DOMAIN
+            checkout_session = stripe.checkout.Session.create(
+                success_url=YOUR_DOMAIN + "/profile/",
+                cancel_url=YOUR_DOMAIN + "/profile/",
+                line_items=[
+                    {
+                        "price_data": {
+                            "currency": 'usd',
+                            "product_data": {
+                                "name": product.name,
+                            },
+                            "unit_amount": product.price
+                        },
+                        "quantity": 1,
+                    },
+                ],
+                metadata={
+                    "product_id": product.id,
+                    "user_id": request.user.id,
+                    "quantity": 1
+                },
+                mode="payment",
+            )
+      
+            return JsonResponse({
+                'id': checkout_session.id
+            })
+        except Exception as e:
+            return JsonResponse({
+                'error': str(e)
+            })
+    else:
+        return redirect('profile')
+
+
 def plan(request):
-    return render(request, 'app/planes.html')
+    context = {
+      "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
+    }
+    return render(request, 'app/planes.html', context)

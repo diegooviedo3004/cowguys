@@ -32,11 +32,11 @@ ESTADO = [
     ('Vendido', 'Vendido'),
 ]
 
-PLAN = [
-    ("Gratuito", "Gratuito"),
-    ("Vip", "Vip"),
-    ("Gold", "Gold"),
-]
+#PLAN = [
+ #   ("Gratuito", "Gratuito"),
+ #   ("Vip", "Vip"),
+ #   ("Gold", "Gold"),
+#]
 
 
 
@@ -69,7 +69,7 @@ class UserInformation(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     updated_at = models.DateTimeField(auto_now=True)
-    plan_precios = models.CharField(max_length=8, choices=PLAN, blank=True, null=True, default=None)
+    #plan_precios = models.CharField(max_length=8, choices=PLAN, blank=True, null=True, default=None)
     cedula = models.CharField(max_length=100, null=True)
     # Diego el campo de la linea 74 es para que el administrador pueda verificar la cuenta del usuario vendedor
     is_verificado = models.BooleanField(null=True,blank=True, default=False)
@@ -149,3 +149,11 @@ class MultimediaCertificadoInscripcion(models.Model):
     publicacion = models.ForeignKey(BovinoPublication, related_name='Incripcion', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/vendetuvaca/Inscripcion/', blank=True, null=True)
 
+
+class Plan(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+    

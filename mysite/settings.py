@@ -190,3 +190,9 @@ LOGIN_URL = '/accounts/google/login'
 ACCOUNT_LOGOUT_REDIRECT_URL ="/accounts/google/login"
 
 #http://localhost:8000/accounts/logout/
+ 
+STRIPE_PUBLIC_KEY = 'pk_test_51NqolCDMm2wbN0mHO6iDFDdvC8vC47efUEC3RnUY02rvv2czh8sy0cqUC96LV7eYH65cbOTN3OotOL4NqmQOChBE00llVh1Ola'
+STRIPE_SECRET_KEY = "sk_test_51NqolCDMm2wbN0mHHigkBNjQHUe4GRNrCpuQvvxkqlMiSjVoYOoZiMC7bvMaOXQIbyeHhyqfZizWcm6PaUbcYgae00p9Rf3uXm"
+STRIPE_WEBHOOK_SECRET = ""
+
+YOUR_DOMAIN = 'http://127.0.0.1:8000'

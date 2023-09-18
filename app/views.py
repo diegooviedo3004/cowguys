@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect 
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import  logout
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from .models import *
 
@@ -22,6 +23,7 @@ def require_no_information(view_func):
     return _wrapped_view
 
 
+
 @login_required
 def dashboard(request):
     context  = {
@@ -31,11 +33,6 @@ def dashboard(request):
 
 def landing(request):
     return render(request, "app/landing.html")
-
-@login_required
-def logout_view(request):
-    logout(request)
-    return redirect('landing')
 
 @login_required
 def profile(request):
@@ -92,12 +89,16 @@ def crearInfo(request):
     return render(request, "app/crear_informacion.html", context)
 
 
+@login_required 
+def crearGanado(request):  
+    return render(request, "app/crear_ganado.html")
 
+
+# Stripe
 
 def checkout_view(request, pk):
     if request.method == "POST":
         try:
-            print(pk)
             product = Plan.objects.get(id=pk)
             YOUR_DOMAIN = settings.YOUR_DOMAIN
             checkout_session = stripe.checkout.Session.create(
@@ -133,6 +134,43 @@ def checkout_view(request, pk):
     else:
         return redirect('profile')
 
+@csrf_exempt
+def my_webhook_view(request):
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
+    try:
+        event = stripe.Webhook.construct_event(
+        payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+        )
+    except ValueError as e:
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        return HttpResponse(status=400)
+
+      # Handle the checkout.session.completed event
+    if event['type'] == 'checkout.session.completed':
+        
+        # Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
+        session = stripe.checkout.Session.retrieve(
+            event['data']['object']['id'],
+            expand=['line_items'],
+        )
+        product_id = session["metadata"]["product_id"]
+        user_id = session["metadata"]["user_id"]
+
+        user = User.objects.get(id=user_id)
+        userinformation = UserInformation.objects.get(user=user)
+        subscription = Plan.objects.get(id=product_id)
+        userinformation.plan_precios = subscription.name
+        userinformation.save()
+      
+    #line_items = session.line_items
+    # Fulfill the purchase...
+    #fulfill_order(line_items)
+
+    # Passed signature verification
+    return HttpResponse(status=200)
 
 def plan(request):
     context = {

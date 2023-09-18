@@ -69,7 +69,7 @@ class UserInformation(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     updated_at = models.DateTimeField(auto_now=True)
-    #plan_precios = models.CharField(max_length=8, choices=PLAN, blank=True, null=True, default=None)
+    plan_precios = models.CharField(max_length=8, blank=True, null=True, default=None)
     cedula = models.CharField(max_length=100, null=True)
     # Diego el campo de la linea 74 es para que el administrador pueda verificar la cuenta del usuario vendedor
     is_verificado = models.BooleanField(null=True,blank=True, default=False)

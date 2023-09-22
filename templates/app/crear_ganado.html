@@ -69,9 +69,10 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
     </style>
 
-    <div x-data="app()" x-cloak class="mt-20">
+    <div x-data="app()" x-cloak class="mt-20 mb-40">
         <div class="max-w-3xl mx-auto px-4 py-10">
 
             <div x-show.transition="step === 'complete'">
@@ -178,7 +179,8 @@
                     <div x-show.transition.in="step === 2">
 
                         <div class="mb-5">
-                            <label for="password" class="font-bold mb-1 text-gray-700 block">Set up password</label>
+                            <div id="map" style="height: 400px"></div>
+                            <!-- <label for="password" class="font-bold mb-1 text-gray-700 block">Set up password</label>
                             <div class="text-gray-600 mt-2 mb-4">
                                 Please create a secure password including the following criteria below.
 
@@ -231,7 +233,7 @@
 
                             <p class="mt-5 text-gray-600">Inspired from dribbble shot: Exploration for a password
                                 strength meter by <a href="https://dribbble.com/OvertonGraphics"
-                                    class="text-blue-500">Josh Overton</a>.</p>
+                                    class="text-blue-500">Josh Overton</a>.</p> -->
                         </div>
 
                     </div>
@@ -296,7 +298,12 @@
 
         <!-- / Bottom Navigation https://placehold.co/300x300/e2e8f0/cccccc -->
     </div>
-
+    <script src="{% static 'js/index.js' %}"></script>
+<!-- AIzaSyCQpZ-cabD1OMl-i9i1HUghROp7c0pP82c&map_ids=663481e2c353fdbc -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5J5DkU8qc2YKHEOBGARcs8DqMSpJHplA&callback=initMap&v=weekly"
+  defer
+></script>
 
 <script>
     function app() {

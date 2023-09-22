@@ -7,7 +7,7 @@ const unp = {
   const unpcenter = { lat: 12.137797, lng: -86.221002 };
   let infoWindow;
   let map;
-  let userMarker; // Variable para almacenar el marcador del usuario
+  let userMarker; 
   
   function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
@@ -17,12 +17,10 @@ const unp = {
     });
   
     infoWindow = new google.maps.InfoWindow();
-  
-    // Función para agregar un marcador en el mapa cuando el usuario hace clic
+
     function addMarkerOnMap(event) {
       const pos = event.latLng;
   
-      // Crear un nuevo marcador personalizado para la ubicación del usuario
       if (!userMarker) {
         userMarker = new google.maps.Marker({
           position: pos,
@@ -37,10 +35,7 @@ const unp = {
       map.setCenter(pos);
     }
   
-    // Agregar un evento de clic al mapa
     map.addListener("click", addMarkerOnMap);
-  
-    // Función para solicitar la ubicación del usuario
     function requestLocation() {
       if (navigator.geolocation) {
         if (window.confirm("¿Permitir acceso a tu ubicación?")) {
@@ -51,7 +46,6 @@ const unp = {
                 lng: position.coords.longitude,
               };
   
-              // Crear un marcador personalizado para la ubicación del usuario
               if (!userMarker) {
                 userMarker = new google.maps.Marker({
                   position: pos,
@@ -71,25 +65,57 @@ const unp = {
           );
         }
       } else {
-        // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
       }
     }
   
-    // Solicitar la ubicación cuando se inicia el mapa
     requestLocation();
   
-    // Crear el botón en la esquina superior izquierda del mapa
-    const locationButton = document.createElement("button");
-    locationButton.textContent = "Mi Ubicación";
-    locationButton.classList.add("custom-map-control-button");
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(locationButton);
+const locationButton1 = document.createElement("button");
+locationButton1.textContent = "Mi Ubicación";
+locationButton1.classList.add(
+  "custom-map-control-button",
+  "bg-gray-50",
+  "hover:bg-gray-50",
+  "shadow-md", 
+  "text-black",
+  "font-bold",
+  "py-2",
+  "px-4",
+  "rounded",
+  "mt-4",
+  "mr-4",
+  "ml-4", 
+);
+
+const locationButton2 = document.createElement("button");
+locationButton2.textContent = "Segundo Botón";
+locationButton2.classList.add(
+  "custom-map-control-button",
+  "bg-gray-50",
+  "hover:bg-gray-50",
+  "shadow-md", 
+  "text-black",
+  "font-bold",
+  "py-2",
+  "px-4",
+  "rounded",
+  "mt-4",
+  "mr-4", 
+);
   
-    // Agregar un evento de clic al botón para centrar el mapa en la ubicación del usuario
-    locationButton.addEventListener("click", () => {
-      if (userMarker) {
-        map.setCenter(userMarker.getPosition());
-      }
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(locationButton1);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(locationButton2);
+  
+
+     locationButton1.addEventListener("click", () => {
+        if (userMarker) {
+          map.setCenter(userMarker.getPosition());
+        }
+      });
+
+    locationButton2.addEventListener("click", () => {
+      alert("¡Segundo Botón Clickeado!");
     });
   }
   

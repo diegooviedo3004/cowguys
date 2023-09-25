@@ -163,7 +163,7 @@
 
                         <div class="mb-5">
                             <label for="firstname" class="font-bold mb-1 text-gray-700 block">Nombre de la Ganaderia o Finca</label>
-                            <input type="text"
+                            <input id="nombre_ganaderia" @keydown="checkPasswordStrength()" type="text"
                                 class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                                 placeholder="Ganaderia">
                         </div>
@@ -284,8 +284,8 @@
                         </div>
 
                         <div class="w-1/2 text-right">
-                            <button x-show="step < 2" @click="step++"
-                                class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-green-500 hover:bg-green-600 font-medium">Next</button>
+                            <button disabled id="continuar" x-show="step < 2" @click="step++"
+                                class="w-32 opacity-50 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-green-500 hover:bg-green-600 font-medium">Next</button>
 
                             <button @click="step = 'complete'" x-show="step === 2"
                                 class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-green-500 hover:bg-green-600 font-medium">Complete</button>
@@ -317,18 +317,27 @@
             gender: 'Male',
 
             checkPasswordStrength() {
-                var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-                var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
-
-                let value = this.password;
-
-                if (strongRegex.test(value)) {
-                    this.passwordStrengthText = "Strong password";
-                } else if (mediumRegex.test(value)) {
-                    this.passwordStrengthText = "Could be stronger";
+                const continuar = document.getElementById("continuar");
+                var nombre = document.getElementById('nombre_ganaderia').value;
+                if (nombre) {
+                    continuar.disabled = false;
+                    continuar.classList.remove("opacity-50");
                 } else {
-                    this.passwordStrengthText = "Too weak";
+                    continuar.disabled = true;
+                    continuar.classList.add("opacity-50");
                 }
+                // var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+                // var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+
+                // let value = this.password;
+
+                // if (strongRegex.test(value)) {
+                //     this.passwordStrengthText = "Strong password";
+                // } else if (mediumRegex.test(value)) {
+                //     this.passwordStrengthText = "Could be stronger";
+                // } else {
+                //     this.passwordStrengthText = "Too weak";
+                // }
             }
         }
     }

@@ -9,6 +9,7 @@ urlpatterns = [
     path('crear_info/', views.crearInfo, name='crearinfo'),
     path('planes/', views.plan, name='planespago'),
     path('crear/ganado/', views.crearGanado, name="crear-ganado"),
+    path('ganaderias/', views.ganaderias, name="ganaderias"),
 
     # Stripe
     path('checkout-session/<pk>/', views.checkout_view, name="create-checkout-session"),

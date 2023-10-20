@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from .models import *
 
-from .form import UserInformationForm
+from .form import UserInformationForm, GanaderiaForm, ProfileGanaderiaForm
 
 # Stripe
 from django.conf import settings 
@@ -40,16 +40,19 @@ def profile(request):
     try:
         user_information = UserInformation.objects.get(user=request.user.id)
         ganaderias_usuario = Ganaderia.objects.filter(user_information__user=request.user.id)
+        perfiles_de_ganaderia = ProfileGanaderia.objects.filter(publicacion__in=ganaderias_usuario)
+
     except UserInformation.DoesNotExist:
        
         user_information = None
         ganaderias_usuario = None
 
-    print(perfil)
+    print(ganaderias_usuario)
     context = {
         'perfil': perfil,
         'userInformation': user_information,
         'ganados': ganaderias_usuario,
+        'perfiles_de_ganaderia': perfiles_de_ganaderia,
     }
     return render(request, 'app/profile.html', context)
 
@@ -92,7 +95,30 @@ def crearInfo(request):
 
 @login_required 
 def crearGanado(request):  
-    return render(request, "app/crear_ganado.html")
+    if request.method == 'POST':
+        ganaderia_form = GanaderiaForm(request.POST)
+        profile_form = ProfileGanaderiaForm(request.POST, request.FILES)
+        print(profile_form)
+        if ganaderia_form.is_valid() and profile_form.is_valid():
+            user_information = UserInformation.objects.get(user=request.user)
+            ganaderia = ganaderia_form.save(commit=False)
+            ganaderia.user_information = user_information
+            ganaderia.save()
+            # Save the ProfileGanaderia instance
+            profile = profile_form.save(commit=False)
+            profile.publicacion = ganaderia
+            profile.save()
+            response_data = {'success': True, 'message': 'Datos guardados con éxito'}
+            return JsonResponse(response_data)
+    else:
+        form1 = GanaderiaForm()
+        form2 = ProfileGanaderiaForm()
+
+    context = {
+        'form1': form1,
+        'form2': form2,
+    }
+    return render(request, "app/crear_ganado.html", context)
 
 
 

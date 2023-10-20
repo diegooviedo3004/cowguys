@@ -58,8 +58,13 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'widget_tweaks',
+    'rest_framework',
+    
     
 ]
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -196,3 +201,12 @@ STRIPE_SECRET_KEY = "sk_test_51NqolCDMm2wbN0mHHigkBNjQHUe4GRNrCpuQvvxkqlMiSjVoYO
 STRIPE_WEBHOOK_SECRET = "whsec_1c8c8a460c70630385161355d5f309cc7e94ada968870db7aa4a464c60253c31"
 
 YOUR_DOMAIN = 'http://localhost:8000'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+      
+    ]
+}

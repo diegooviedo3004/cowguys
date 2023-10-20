@@ -101,7 +101,8 @@ locationButton2.classList.add(
   "px-4",
   "rounded",
   "mt-4",
-  "mr-4", 
+  "mr-4",
+  "enviarserver", 
 );
   
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(locationButton1);
@@ -115,7 +116,13 @@ locationButton2.classList.add(
       });
 
     locationButton2.addEventListener("click", () => {
-      alert("¡Segundo Botón Clickeado!");
+      if (userMarker) {
+        const latitud = userMarker.getPosition().lat();
+        const longitud = userMarker.getPosition().lng();
+        
+        // Ahora puedes enviar la latitud y longitud al servidor
+        console(latitud, longitud);
+      }
     });
   }
   
@@ -128,4 +135,9 @@ locationButton2.classList.add(
     );
     infoWindow.open(map);
   }
+
+  document.querySelector(".enviarserver").addEventListener("click", function() {
+   
+  });
+  
   

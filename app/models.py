@@ -4,7 +4,6 @@ from datetime import date
 from cloudinary_storage.storage import  VideoMediaCloudinaryStorage
 from cloudinary_storage.validators import validate_video
 
-
 SEXO = [
     ('Macho', 'Macho'),
     ('Hembra', 'Hembra'),

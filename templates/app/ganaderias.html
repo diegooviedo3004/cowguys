@@ -1,0 +1,21 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{%block title %}Ganaderias{%endblock%}
+
+
+{% block main %}
+<div id="map" style="height: 400px"></div>
+
+
+
+
+<script src="{% static 'js/index.js' %}"></script>
+<!-- AIzaSyCQpZ-cabD1OMl-i9i1HUghROp7c0pP82c&map_ids=663481e2c353fdbc -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5J5DkU8qc2YKHEOBGARcs8DqMSpJHplA&callback=initMap&v=weekly"
+  defer
+></script>
+
+{% endblock %}

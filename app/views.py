@@ -45,7 +45,7 @@ def profile(request):
         user_information = None
         ganaderias_usuario = None
 
-    print(ganaderias_usuario)
+    print(perfil)
     context = {
         'perfil': perfil,
         'userInformation': user_information,
@@ -98,6 +98,9 @@ def crearGanado(request):
 
 def ganaderias(request):
     return render(request, 'app/ganaderias.html')
+
+def mensajes(request):
+    return render(request, 'app/message/index.html')
 
 
 # Stripe

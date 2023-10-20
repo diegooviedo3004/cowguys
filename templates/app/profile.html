@@ -11,10 +11,17 @@
 <div aria-label="cards" class="bg-white dark:bg-gray-800 shadow rounded">
     <div class="relative">
         <img tabindex="0" class="focus:outline-none h-56 shadow rounded-t w-full object-cover object-center"
-            src="https://tuk-cdn.s3.amazonaws.com/assets/components/grid_cards/gc_29.png" alt="mountains cover" />
+            src="{% static '/img/portada.jpg' %}" alt="mountains cover" />
         <div class="inset-0 m-auto w-24 h-24 absolute bottom-0 -mb-12 xl:ml-10 rounded border-2 shadow border-white">
+            {% if perfil.get_photo_url != None %}
+            <img tabindex="0" class="focus:outline-none w-full h-full overflow-hidden object-cover rounded"
+                src="{% static '/img/vaca6.jpeg' %}" alt="person" />
+            
+            {% else %}
             <img tabindex="0" class="focus:outline-none w-full h-full overflow-hidden object-cover rounded"
                 src="{{perfil.get_photo_url}}" alt="person" />
+
+            {% endif%}
         </div>
     </div>
     <div class="px-5 xl:px-10 pb-10">
@@ -37,7 +44,11 @@
                 <div
                     class="text-center xl:text-left mb-3 xl:mb-0 flex flex-col xl:flex-row items-center justify-between xl:justify-start">
                     <a tabindex="0" class=" focus:outline-none  text-gray-800 dark:text-gray-100 focus:outline-none">
+                        {% if perfil.get_photo_url != None %}
+                        <h2 class="mb-3 xl:mb-0 xl:mr-4 text-2xl  font-medium tracking-normal">{{perfil.first_name}} {{perfil.last_name}}
+                        {% else %}
                         <h2 class="mb-3 xl:mb-0 xl:mr-4 text-2xl  font-medium tracking-normal">{{perfil.first_name}}
+                        {% endif %}
                             {% if userInformation.is_verificado %}
 
                             <span
@@ -125,8 +136,19 @@
 
                     {% if userInformation %}
 
-                    {% if userInformation.plan_precios == None %}
-                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button"
+                        {% if userInformation.plan_precios == None %}
+                            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button"
+                                class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 
+                                        text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-auto md:w-auto">
+                                Crear Ganado
+                                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 14 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                </svg>
+                            </button>
+                        {% else %}
+                            <button id="crear-ganado" type="button"
                             class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 
                                     text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-auto md:w-auto">
                             Crear Ganado
@@ -136,18 +158,7 @@
                                     d="M1 5h12m0 0L9 1m4 4L9 9" />
                             </svg>
                         </button>
-                    {% else %}
-                        <button id="crear-ganado" type="button"
-                        class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 
-                                text-center inline-flex items-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-auto md:w-auto">
-                        Crear Ganado
-                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 14 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M1 5h12m0 0L9 1m4 4L9 9" />
-                        </svg>
-                    </button>
-                    {% endif %}
+                        {% endif %}
 
                     {% else %}
                     <button data-modal-target="popup-modal1" data-modal-toggle="popup-modal1" class="focus:outline-none focus:ring-2 focus:ring-offset-2 

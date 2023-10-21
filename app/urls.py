@@ -13,6 +13,7 @@ urlpatterns = [
     path('mensajes/<int:user_id>', views.mensajes, name="mensajes"),
 
     path("perfil/ganaderia/<pk>/", views.perfil_ganaderia, name="perfil_ganaderia"),
+    path("crear/publicacion/", views.crear_publicacion, name="crear_publicacion"),
 
     # Stripe
     path('checkout-session/<pk>/', views.checkout_view, name="create-checkout-session"),

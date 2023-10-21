@@ -134,9 +134,15 @@ def perfil_ganaderia(request,pk):
     user_information = get_object_or_404(UserInformation, user=request.user)
     ganaderia = get_object_or_404(Ganaderia, id=pk)
 
+    perfil_ganaderia = get_object_or_404(ProfileGanaderia, publicacion=ganaderia)
+
+    bovinoPublication=BovinoPublication.objects.filter(ganaderia=ganaderia)
+
     context = {
         "userInformation": user_information,
         "ganaderia": ganaderia,
+        "perfil_ganaderia": perfil_ganaderia,
+        "bovinoPublication": bovinoPublication
     }
     return render(request, 'app/perfil_ganaderia.html', context)
 
@@ -155,6 +161,15 @@ def mensajes(request, user_id):
         "user": request.user
     }
     return render(request, 'app/message.html', context)
+
+@login_required
+def crear_publicacion(request):
+    form = UserInformationForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'app/crear_publicacion.html', context)
 
 
 # Stripe

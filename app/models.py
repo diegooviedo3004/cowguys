@@ -97,6 +97,9 @@ class ProfileGanaderia(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def get_name(self):
+        return self.publicacion.nombre_ganaderia
+
 class BovinoPublication(models.Model):
     ganaderia = models.ForeignKey(Ganaderia, related_name='Ganaderia', on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255)
@@ -108,6 +111,7 @@ class BovinoPublication(models.Model):
     race = models.CharField(max_length=25, choices=RACE, default='otro')
     categoria = models.CharField(max_length=15, choices=CATEGORY, default='Ganado Carne')
     estado = models.CharField(max_length=20, choices=ESTADO, default='Activo')
+    price = models.DecimalField(max_digits=19, decimal_places=2, default=0)
 
     def get_user_from_ganaderia(self):
         return self.ganaderia.user_information.user

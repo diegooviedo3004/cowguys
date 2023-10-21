@@ -31,11 +31,6 @@ ESTADO = [
     ('Vendido', 'Vendido'),
 ]
 
-#PLAN = [
- #   ("Gratuito", "Gratuito"),
- #   ("Vip", "Vip"),
- #   ("Gold", "Gold"),
-#]
 
 
 
@@ -51,7 +46,7 @@ class User(AbstractUser):
         if self.socialaccount_set.filter(provider='google'):
             return self.socialaccount_set.filter(provider='google')[0].extra_data['name']
         else:
-            return False
+            return self.username
 
     def get_email(self):
         if self.socialaccount_set.filter(provider='google'):
@@ -73,6 +68,15 @@ class UserInformation(models.Model):
     # Diego el campo de la linea 74 es para que el administrador pueda verificar la cuenta del usuario vendedor
     is_verificado = models.BooleanField(null=True,blank=True, default=False)
 
+    def get_name(self):
+        return self.user.get_name()
+    
+    def get_email(self):
+        return self.user.email
+    
+    def get_photo(self):
+        return self.user.get_photo_url()
+    
     def __str__(self):
         return self.nombre 
 
@@ -105,6 +109,8 @@ class BovinoPublication(models.Model):
     categoria = models.CharField(max_length=15, choices=CATEGORY, default='Ganado Carne')
     estado = models.CharField(max_length=20, choices=ESTADO, default='Activo')
 
+    def get_user_from_ganaderia(self):
+        return self.ganaderia.user_information.user
 
     def get_years(self):
         today = date.today()

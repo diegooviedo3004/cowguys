@@ -1,0 +1,52 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{%block title %}Mensajes{%endblock%}
+
+
+{% block main %}
+<script>
+    (function(t,a,l,k,j,s){
+    s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+    ;k=t.Promise;t.Talk={v:3,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+    </script>
+    
+    <div class="container mt-40 mb-40">
+    <!-- container element in which TalkJS will display a chat UI -->
+    <div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px">
+      <i>Loading chat...</i>
+    </div>
+    </div>
+
+    <script>
+        Talk.ready.then(function () {
+    var other = new Talk.User({
+      id: '{{pub_user.id}}',
+      name: '{{pub_user.get_name}}',
+    });
+
+    var me = new Talk.User({
+        id: '{{user.id}}',
+        name: '{{user.get_name}}',
+      });
+
+    window.talkSession = new Talk.Session({
+      appId: 'tcP1sPA3',
+      me: me,
+    });
+    
+  
+    var conversation = talkSession.getOrCreateConversation(
+      Talk.oneOnOneId(me, other)
+    );
+    conversation.setParticipant(me);
+    conversation.setParticipant(other);
+  
+    var inbox = talkSession.createInbox();
+    inbox.select(conversation);
+    inbox.mount(document.getElementById('talkjs-container'));
+  });
+    </script>
+  
+{% endblock %}

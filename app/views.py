@@ -27,7 +27,11 @@ def require_no_information(view_func):
 
 @login_required
 def dashboard(request):
-    return render(request, "app/index.html")
+    context = {
+
+        "gold_users": UserInformation.objects.filter(plan_precios="Gold").exclude(user=request.user)
+    }
+    return render(request, "app/index.html", context=context)
 
 def landing(request):
     return render(request, "app/landing.html")
@@ -139,8 +143,18 @@ def perfil_ganaderia(request,pk):
 def ganaderias(request):
     return render(request, 'app/ganaderias.html')
 
-def mensajes(request):
-    return render(request, 'app/message/index.html')
+@login_required
+def mensajes(request, user_id):
+    pub_user = get_object_or_404(User, id=user_id)
+
+    if pub_user == request.user:
+        return HttpResponse("No puedes hablar contigo mismo")
+    
+    context = {
+        "pub_user": pub_user,
+        "user": request.user
+    }
+    return render(request, 'app/message.html', context)
 
 
 # Stripe

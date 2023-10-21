@@ -158,10 +158,10 @@
                         </svg>
                     </button>
 
-                    <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 
+                    <a href="{% url 'mensajes' userInformation.id %}" class="focus:outline-none focus:ring-2 focus:ring-offset-2 
                     focus:ring-green-700 focus:bg-green-600 ml-0 md:ml-5 mt-2 md:mt-0 bg-green-700 
                     dark:bg-green-600 transition duration-150 ease-in-out hover:bg-green-600 rounded 
-                    text-white px-3 md:px-6 py-2 text-sm w-auto md:w-auto">Mensajes</button>
+                    text-white px-3 md:px-6 py-2 text-sm w-auto md:w-auto">Mensajes</a>
 
 
                     {% endif %}
@@ -325,8 +325,13 @@
                 <div class="flex justify-center md:justify-end -mt-16">
                     {% for perfil in perfiles_de_ganaderia %}
                         {% if perfil.publicacion == i %}
+                        {% if perfil.image %}
                             <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="{{ perfil.image.url }}">
-                        {% endif %}
+                            {% else %}
+                            <img class="w-20 h-20 object-cover rounded-full border-2 border-indigo-500" src="">
+
+                            {% endif %}
+                            {% endif %}
                     {% endfor %}
                 </div>
                 <div>

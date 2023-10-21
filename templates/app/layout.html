@@ -5,9 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    
-    
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+
     <title>{% block title%}{% endblock%}</title>
 </head>
 
@@ -26,12 +28,7 @@
 
                     {% if user.is_authenticated %}
 
-                    
-                  
                     {% else %}
-
-
-
                     <form action="{% url 'google_login'%}" method="get">
                         <button type="submit" class="text-white  bg-green-700 hover:bg-green-8000 focus:ring-4 focus:outline-nonefocus:ring-green-300 
                         font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 
@@ -67,20 +64,23 @@
                                 class="block py-2 pl-3 pr-4 text-gray-900 rounded  hover:bg-gray-100 md:bg-transparent md:hover:text-green-700 md:p-0 md:dark:text-blue-500"
                                 aria-current="page">Inicio</a>
                         </li>
-                        
+
                         <li>
                             <a href="{% url 'ganaderias' %}"
                                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Ganaderias</a>
                         </li>
-                        
+
                         <li>
                             <a href="{% url 'about' %}"
                                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Acerca</a>
                         </li>
 
                         <li>
-                            <a href="#"
-                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cerrar Sesión</a>
+                            <form method="POST" action="/accounts/logout/">
+                                {% csrf_token %} <!-- Si estás utilizando Django, por ejemplo, agrega el token CSRF -->
+                            
+                                <button type="submit" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Cerrar Sesión</button>
+                            </form>
                         </li>
 
                         <!-- <li id="dropdownDefaultButton" data-dropdown-toggle="dropdown" >Ajustes<svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true"
@@ -89,20 +89,31 @@
                                 d="m1 1 4 4 4-4" />
                         </svg></li> -->
 
-                                            
 
-                       
+
+
                         {% else %}
                         <li>
                             <a href="{% url 'landing' %}"
                                 class="block py-2 pl-3 pr-4 text-gray-900 rounded  hover:bg-gray-100 md:bg-transparent md:hover:text-green-700 md:p-0 md:dark:text-blue-500"
                                 aria-current="page">Inicio</a>
                         </li>
-                        
+
+                        <li>
+                            <a href="{% url 'ganaderias' %}"
+                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Ganaderias</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'about' %}"
+                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Acerca</a>
+                        </li>
+
+
                         {%endif%}
-                     
-                         <!-- Dropdown menu -->
-                         <!-- <div id="dropdown"
+
+                        <!-- Dropdown menu -->
+                        <!-- <div id="dropdown"
                          class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                              aria-labelledby="dropdownDefaultButton">
@@ -123,7 +134,7 @@
 
                          </ul>
                      </div> -->
-                     
+
 
                     </ul>
                 </div>
@@ -142,8 +153,7 @@
                 <div tabindex="0" aria-label="footer"
                     class="focus:outline-none mx-auto container flex flex-col items-center justify-center">
                     <div tabindex="0" aria-label="prodify logo" role="img">
-                        <img src="{% static 'img/logo31.png'%}"
-                            alt="logo">
+                        <img src="{% static 'img/logo31.png'%}" alt="logo">
                     </div>
                     <div class="text-black flex flex-col md:items-center f-f-l pt-3">
                         <h1 tabindex="0" class="focus:outline-none dark:text-white text-2xl font-black">Vendetuvaca.

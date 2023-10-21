@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import  logout
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
+from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import *
 
 from .form import UserInformationForm, GanaderiaForm, ProfileGanaderiaForm
@@ -26,10 +27,7 @@ def require_no_information(view_func):
 
 @login_required
 def dashboard(request):
-    context  = {
-        'nombre': "HOla"
-    }
-    return render(request, "app/index.html", context)
+    return render(request, "app/index.html")
 
 def landing(request):
     return render(request, "app/landing.html")
@@ -37,15 +35,22 @@ def landing(request):
 @login_required
 def profile(request):
     perfil = request.user
+
+    # user_information = get_object_or_404(UserInformation, user = request.user)
+
     try:
         user_information = UserInformation.objects.get(user=request.user.id)
-        ganaderias_usuario = Ganaderia.objects.filter(user_information__user=request.user.id)
-        perfiles_de_ganaderia = ProfileGanaderia.objects.filter(publicacion__in=ganaderias_usuario)
-
-    except UserInformation.DoesNotExist:
-       
+    except UserInformation.DoesNotExist: 
         user_information = None
+    try:
+        ganaderias_usuario = Ganaderia.objects.filter(user_information__user=request.user.id)
+    except Ganaderia.DoesNotExist:
         ganaderias_usuario = None
+    try:
+        perfiles_de_ganaderia = ProfileGanaderia.objects.filter(publicacion__in=ganaderias_usuario)
+    except:
+        perfiles_de_ganaderia = None
+
 
     print(ganaderias_usuario)
     context = {
@@ -120,7 +125,16 @@ def crearGanado(request):
     }
     return render(request, "app/crear_ganado.html", context)
 
+@login_required
+def perfil_ganaderia(request,pk):
+    user_information = get_object_or_404(UserInformation, user=request.user)
+    ganaderia = get_object_or_404(Ganaderia, id=pk)
 
+    context = {
+        "userInformation": user_information,
+        "ganaderia": ganaderia,
+    }
+    return render(request, 'app/perfil_ganaderia.html', context)
 
 def ganaderias(request):
     return render(request, 'app/ganaderias.html')

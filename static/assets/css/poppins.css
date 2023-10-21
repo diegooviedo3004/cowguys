@@ -1,0 +1,46 @@
+body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Poppins Bold */
+.poppins-bold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* Poppins Black */
+  .poppins-black {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+  }
+  
+  /* Poppins Extra Bold */
+  .poppins-extrabold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+  }
+  
+  /* Poppins Semi Bold */
+  .poppins-semibold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  /* Poppins Medium */
+  .poppins-medium {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+ 
+  /* Poppins Light */
+.poppins-light {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+  }
+  
+  /* Poppins Thin */
+  .poppins-thin {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+  }
+  

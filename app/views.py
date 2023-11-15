@@ -171,6 +171,15 @@ def crear_publicacion(request):
     }
     return render(request, 'app/crear_publicacion.html', context)
 
+#MapNicaragua
+def map_nicaragua(request):
+    form = UserInformationForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'app/mapnicaragua.html', context)
+
 
 # Stripe
 def checkout_view(request, pk):

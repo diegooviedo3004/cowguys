@@ -14,6 +14,7 @@ urlpatterns = [
 
     path("perfil/ganaderia/<pk>/", views.perfil_ganaderia, name="perfil_ganaderia"),
     path("crear/publicacion/", views.crear_publicacion, name="crear_publicacion"),
+    path("mapa/", views.map_nicaragua, name="map_nicaragua"),
 
     # Stripe
     path('checkout-session/<pk>/', views.checkout_view, name="create-checkout-session"),

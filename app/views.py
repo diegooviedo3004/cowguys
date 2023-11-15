@@ -3,6 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import  logout
 from django.views.decorators.csrf import csrf_exempt
+from django.core.paginator import Paginator
 # Create your views here.
 from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import *
@@ -27,8 +28,13 @@ def require_no_information(view_func):
 
 @login_required
 def dashboard(request):
+    contact_list = MultimediaImg.objects.all()
+    paginator = Paginator(contact_list, 10)  # Show 25 contacts per page.
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
     context = {
         'ganados': MultimediaImg.objects.all(),
+        'ganados_list': page_obj,
         "gold_users": UserInformation.objects.filter(plan_precios="Gold").exclude(user=request.user)
     }
     return render(request, "app/index.html", context=context)
@@ -55,6 +61,8 @@ def profile(request):
     except:
         perfiles_de_ganaderia = None
 
+    cantidad = {"ganaderias": len(ganaderias_usuario), 
+    "publicaciones": len(MultimediaImg.objects.filter(publicacion__ganaderia__user_information__user=request.user.id))}
 
     print(ganaderias_usuario)
     context = {
@@ -62,6 +70,8 @@ def profile(request):
         'userInformation': user_information,
         'ganados': ganaderias_usuario,
         'perfiles_de_ganaderia': perfiles_de_ganaderia,
+        'cantidad': cantidad,
+        
     }
     return render(request, 'app/profile.html', context)
 
@@ -107,7 +117,6 @@ def crearGanado(request):
     if request.method == 'POST':
         ganaderia_form = GanaderiaForm(request.POST)
         profile_form = ProfileGanaderiaForm(request.POST, request.FILES)
-        print(profile_form)
         if ganaderia_form.is_valid() and profile_form.is_valid():
             user_information = UserInformation.objects.get(user=request.user)
             ganaderia = ganaderia_form.save(commit=False)
@@ -128,6 +137,14 @@ def crearGanado(request):
         'form2': form2,
     }
     return render(request, "app/crear_ganado.html", context)
+
+@login_required
+def ver_publicaciones(request,pk):
+    publicacion = MultimediaImg.objects.get(id=pk)
+    context = {
+        'publicacion': publicacion,
+    }
+    return render(request, 'app/viewpublicaciones.html', context)
 
 @login_required
 def perfil_ganaderia(request,pk):

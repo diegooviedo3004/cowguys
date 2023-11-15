@@ -107,7 +107,7 @@
                 <div class="mr-6 xl:mr-10">
                     <h2 tabindex="0"
                         class="focus:outline-none text-gray-600 dark:text-gray-400 font-bold text-xl xl:text-2xl leading-6 mb-2 text-center">
-                        0</h2>
+                        {{cantidad.publicaciones}}</h2>
                     <a tabindex="0" class=" focus:outline-none text-gray-800 dark:text-gray-100 ">
                         <p class=" text-sm xl:text-xl leading-5">Publicaciones</p>
                     </a>
@@ -115,7 +115,7 @@
                 <div>
                     <h2 tabindex="0"
                         class="focus:outline-none text-gray-600 dark:text-gray-400 font-bold text-xl xl:text-2xl leading-6 mb-2 text-center">
-                        0</h2>
+                        {{cantidad.ganaderias}}</h2>
                     <a tabindex="0" class=" focus:outline-none text-gray-800 dark:text-gray-100 ">
                         <p class=" text-sm xl:text-xl leading-5">Ganaderias</p>
                     </a>
@@ -147,6 +147,17 @@
                         </svg>
                     </button>
                     {% else %}
+                    <button  type="button"
+                        class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 
+                                    text-center inline-flex items-center justify-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-auto md:w-auto">
+                        Crear Publicación
+                        <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </button>
+
                     <button id="crear-ganado" type="button"
                         class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 
                                     text-center inline-flex items-center justify-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 w-auto md:w-auto">

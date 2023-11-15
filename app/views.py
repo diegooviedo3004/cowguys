@@ -28,7 +28,7 @@ def require_no_information(view_func):
 @login_required
 def dashboard(request):
     context = {
-
+        'ganados': MultimediaImg.objects.all(),
         "gold_users": UserInformation.objects.filter(plan_precios="Gold").exclude(user=request.user)
     }
     return render(request, "app/index.html", context=context)

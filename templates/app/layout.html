@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +32,8 @@
                     {% if user.is_authenticated %}
 
                     {% else %}
-                    <form action="{% url 'google_login'%}" method="get">
+        
+                    <form action="{% url 'account_login' %}" method="get">
                         <button type="submit" class="text-white  bg-green-700 hover:bg-green-8000 focus:ring-4 focus:outline-nonefocus:ring-green-300 
                         font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 
                         dark:hover:bg-green-700 dark:focus:ring-green-800">Acesso/Registrarse</button>

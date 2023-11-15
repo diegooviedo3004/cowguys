@@ -114,7 +114,7 @@ class BovinoPublication(models.Model):
     price = models.DecimalField(max_digits=19, decimal_places=2, default=0)
 
     def get_user_from_ganaderia(self):
-        return self.ganaderia.user_information.user
+        return self.ganaderia.user_information.user.id
 
     def get_years(self):
         today = date.today()
@@ -142,6 +142,11 @@ class MultimediaImg(models.Model):
     image = models.ImageField(upload_to='images/vendetuvaca/publicacion/', blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+    def get_user_from_ganaderia(self):
+        return self.publicacion.get_user_from_ganaderia()
+
 
 class MultimediaVideo(models.Model):
     publicacion = models.ForeignKey(BovinoPublication, related_name='video', on_delete=models.CASCADE)

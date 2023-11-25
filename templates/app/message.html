@@ -24,15 +24,20 @@
     var other = new Talk.User({
       id: '{{pub_user.id}}',
       name: '{{pub_user.get_name}}',
+      photoUrl: '{{pub_user.get_photo_url}}',
+      
     });
 
     var me = new Talk.User({
         id: '{{user.id}}',
         name: '{{user.get_name}}',
+        photoUrl: '{{user.get_photo_url}}',
+
+        
       });
 
     window.talkSession = new Talk.Session({
-      appId: 'tcP1sPA3',
+      appId: 't6aLeqkH',
       me: me,
     });
     

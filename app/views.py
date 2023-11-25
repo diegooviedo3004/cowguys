@@ -8,7 +8,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, get_list_or_404
 from .models import *
 
-from .form import UserInformationForm, GanaderiaForm, ProfileGanaderiaForm
+from .form import UserInformationForm, GanaderiaForm, ProfileGanaderiaForm, BovinoPublicationForm
 
 # Stripe
 from django.conf import settings 
@@ -167,7 +167,7 @@ def ganaderias(request):
     return render(request, 'app/ganaderias.html')
 
 @login_required
-def mensajes(request, user_id):
+def mensajes(request, user_id, titulo):
     pub_user = get_object_or_404(User, id=user_id)
 
     if pub_user == request.user:
@@ -175,13 +175,28 @@ def mensajes(request, user_id):
     
     context = {
         "pub_user": pub_user,
-        "user": request.user
+        "user": request.user,
+        "titulo": titulo,
     }
     return render(request, 'app/message.html', context)
 
 @login_required
 def crear_publicacion(request):
-    form = UserInformationForm()
+    if request.method == 'POST':
+        publicacion_form = BovinoPublicationForm(request.POST)
+        #profile_form = ProfileGanaderiaForm(request.POST, request.FILES)
+        if publicacion_form.is_valid():
+            user_information = UserInformation.objects.get(user=request.user)
+            ganaderia = publicacion_form.save(commit=False)
+            #ganaderia.user_information = user_information
+            #ganaderia.save()
+            # Save the ProfileGanaderia instance
+            #profile = profile_form.save(commit=False)
+            #profile.publicacion = ganaderia
+            #profile.save()
+            return redirect('profile')
+    else:
+        form = BovinoPublicationForm()
 
     context = {
         'form': form,

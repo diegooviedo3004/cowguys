@@ -3,12 +3,13 @@ from .models import UserInformation, Ganaderia, ProfileGanaderia, BovinoPublicat
 
 
 class BovinoPublicationForm(ModelForm):
-    def _init_(self, current_user, *args, **kwargs):
-        super(BovinoPublicationForm, self)._init_(*args, **kwargs)
-        self.fields['ganaderia'].queryset = self.fields['ganaderia'].queryset.filter(ganaderia__user_information__user=current_user)
+    #def _init_(self, current_user, *args, **kwargs):
+        #super(BovinoPublicationForm, self)._init_(*args, **kwargs)
+        #self.fields['ganaderia'].queryset = self.fields['ganaderia'].queryset.filter(ganaderia__user_information__user=current_user)
 
     class Meta:
         model = BovinoPublication
+        fields = ['title', 'description', 'code', 'date_born', 'weight', 'race', 'categoria', 'price' ]
         exclude = ("estado",)
 
 

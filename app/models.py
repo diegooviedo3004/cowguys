@@ -99,6 +99,8 @@ class ProfileGanaderia(models.Model):
 
     def get_name(self):
         return self.publicacion.nombre_ganaderia
+    
+
 
 class BovinoPublication(models.Model):
     ganaderia = models.ForeignKey(Ganaderia, related_name='Ganaderia', on_delete=models.CASCADE, null=True)
